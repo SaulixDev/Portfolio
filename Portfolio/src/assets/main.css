@@ -2,8 +2,102 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
+@tailwind utilities;
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Light mode */
+  --color-bg300: #f5f5f5;
+  --color-bg200: #ffffff;
+  --color-bg100: #fafafa;
+  --color-primary100: #007acc;
+  --color-primary200: #005fa3;
+  --color-primary300: #004080;
+  --color-accent100: #00d4ff;
+  --color-accent200: #008fb3;
+  --color-text100: #333333;
+  --color-text200: #666666;
+
+  /* Dark mode */
+  --color-dbg300: #282a36;
+  --color-dbg200: #3b3e55;
+  --color-dbg100: #44475a;
+  --color-dbghover100: #56577c;
+  --color-dprimary100: #8be9fd;
+  --color-dprimary200: #50fa7b;
+  --color-dprimary300: #6272a4;
+  --color-daccent100: #bd93f9;
+  --color-daccent200: #ff79c6;
+  --color-dtext100: #f8f8f2;
+  --color-dtext200: #6272a4;
+
+  --font-title: "Roboto Mono", monospace;
+}
+
+/* Base styles */
+body {
+  background-color: var(--color-bg300);
+  color: var(--color-text100);
+  font-family: var(--font-title);
+}
+
+a {
+  color: var(--color-primary100);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-primary200);
+    background-color: var(--color-accent100);
+}
+
+/* Dark theme overrides */
+.dark body {
+  background-color: var(--color-dbg300);
+  color: var(--color-dtext100);
+}
+
+.dark a {
+  color: var(--color-dprimary100);
+}
+
+.dark a:hover {
+  color: var(--color-dprimary200);
+    background-color: var(--color-dprimary100);
+}
+
+.text-legible {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+.icon-glass {
+  @apply bg-white/20 backdrop-blur-lg border border-white/30 rounded-lg shadow-lg;
+  backdrop-filter: blur(1rem);
+  -webkit-backdrop-filter: blur(1rem);
+}
+
+.icon-glass {
+  @apply transition relative overflow-hidden;
+  top: 0;
+  z-index: 1;
+}
+
+.icon-glass:hover {
+  top: -0.5rem;
+  transform: translateY(0.5rem);
+  z-index: 10;
+}
+
+.icon-glass::before {
+  content: '';
+  @apply absolute top-0 left-0 h-full w-1/2 bg-white/50;
+  transform: skewX(45deg) translateX(150%);
+  transition: transform 0.5s ease;
+}
+
+.icon-glass:hover::before {
+  transform: skewX(45deg) translateX(-150%);
+}
 
