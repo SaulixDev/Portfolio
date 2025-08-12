@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-
 @tailwind utilities;
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 
@@ -34,7 +33,7 @@
   --color-dtext100: #f8f8f2;
   --color-dtext200: #6272a4;
 
-  --font-title: "Roboto Mono", monospace;
+  --font-title: 'Roboto Mono', monospace;
 }
 
 /* Base styles */
@@ -50,11 +49,11 @@ a {
 }
 
 a:hover {
-  color: var(--color-primary200);
-    background-color: var(--color-accent100);
+  background-color: rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(4px);
+  transition: background-color 0.3s ease;
 }
 
-/* Dark theme overrides */
 .dark body {
   background-color: var(--color-dbg300);
   color: var(--color-dtext100);
@@ -65,8 +64,7 @@ a:hover {
 }
 
 .dark a:hover {
-  color: var(--color-dprimary200);
-    background-color: var(--color-dprimary100);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .text-legible {
@@ -101,3 +99,17 @@ a:hover {
   transform: skewX(45deg) translateX(-150%);
 }
 
+@keyframes zoomIn {
+  from {
+    transform: scale(1);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+.animate-zoom-in {
+  animation: zoomIn 1s ease-out forwards;
+}

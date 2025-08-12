@@ -8,17 +8,17 @@ import { createPinia } from 'pinia'
 
 import App from './App.vue'
 import router from './router'
-
 const app = createApp(App)
 
 const i18n = createI18n({
-  locale: 'es',             // idioma por defecto
-  fallbackLocale: 'en',     // si falta una clave en 'es', recurre a 'en'
+  locale: 'es',
+  fallbackLocale: 'en',
   messages: { es, en },
-  legacy: false,            // Composition API
+  legacy: false,
 })
 
 app.use(createPinia())
 app.use(router)
+app.use(i18n)
 
 app.mount('#app')

@@ -10,10 +10,14 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@iconify-icons/mdi": "^1.2.48",
+    "@iconify-icons/simple-icons": "^1.2.74",
+    "@iconify/vue": "^5.0.0",
     "@tailwindcss/vite": "^4.1.5",
     "pinia": "^3.0.1",
     "tailwindcss": "^4.1.5",
     "vue": "^3.5.13",
+    "vue-i18n": "^11.1.11",
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
